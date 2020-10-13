@@ -24,7 +24,7 @@
                     </div>
 
                     {% if user.id is not NONE %}
-                        <a href="#" class="login-panel"><i class="fa fa-user"></i>My Account{{ user.first_name }}</a>
+                        <a href="#" class="login-panel"><i class="fa fa-user"></i>{{ user  }}</a>
                         <a href="/logout" class="login-panel"><i class="fa fa-user"></i>LogOut</a>
                     {% else %}
                         <a href="/login" class="login-panel"><i class="fa fa-user"></i>Login</a>

@@ -1,11 +1,15 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import AuthenticationForm
-from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.models import User
+from django.http import HttpResponse, HttpResponseRedirect, request
 from django.shortcuts import render, redirect
 
 
 # Create your views here.
+from user.forms import SignUpForm
+
+
 def index(request):
     return HttpResponse("User App")
 
@@ -29,15 +33,27 @@ def login_form(request):
                   context={"form": form})
 
 
-
-
-    # return render(request, 'login_form.html')
-
 def signup_form(request):
-    return HttpResponse("Sign Up Form")
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            messages.success(request, 'Your account has been created!')
+            return redirect('/signup')
+        else:
+            messages.warning(request, form.errors)
+            return redirect('./')
+
+    form = SignUpForm()
+    return render(request, 'signup.html', context={'form': form})
 
 
 def logout_func(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
-    return redirect('/')
+    return redirect('/login')
+
