@@ -20,6 +20,8 @@ urlpatterns = [
     path('', include('home.urls')),
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
+    path('product/', include('product.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('login/', UserViews.login_form, name = 'login_form' ),
     path('logout/', UserViews.logout_func, name = 'logout_func' ),
     path('signup/', UserViews.signup_form, name = 'signup_form' ),

@@ -8,6 +8,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from user.forms import SignUpForm
+from user.models import UserProfile
 
 
 def index(request):
@@ -42,6 +43,11 @@ def signup_form(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
+
+            current_user = request.user
+            data = UserProfile()
+            data.user_id=current_user.id
+            data.save()
             messages.success(request, 'Your account has been created!')
             return redirect('/signup')
         else:
