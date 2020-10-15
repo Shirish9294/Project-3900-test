@@ -119,8 +119,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL='/home/static/img/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/home/static/img')
+MEDIA_URL='/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 
 SITE_ID=1
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'

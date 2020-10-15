@@ -5,13 +5,23 @@
                 <div class="ht-left">
                     <div class="mail-service">
                         <i class=" fa fa-envelope"></i>
-                        dgaonkar@unomaha.edu
                     </div>
                     <div class="phone-service">
                         <i class=" fa fa-phone"></i>
-
                     </div>
                 </div>
+
+            <div class = "ht-right">
+
+                {% if user.id is not NONE %}
+                        <a href="/user" class="login-panel"><i ><img src = '{{ request.session.userimage }}' style="height: 35px; width: 30px; border-radius: 10%" alt=" image"></i>{{ user  }}</a>
+
+                        <a href="/logout" class="login-panel"><i class="fa fa-user"></i>LogOut</a>
+                    {% else %}
+                        <a href="/login" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                        <a href="/signup" class="login-panel"><i class="fa fa-user"></i> Sign-Up </a>
+                    {% endif %}
+            </div>
 
                 <div class="ht-right">
                     <div class="lan-selector">
@@ -23,13 +33,6 @@
                         </select>
                     </div>
 
-                    {% if user.id is not NONE %}
-                        <a href="#" class="login-panel"><i class="fa fa-user"></i>{{ user  }}</a>
-                        <a href="/logout" class="login-panel"><i class="fa fa-user"></i>LogOut</a>
-                    {% else %}
-                        <a href="/login" class="login-panel"><i class="fa fa-user"></i>Login</a>
-                        <a href="/signup" class="login-panel"><i class="fa fa-user"></i> Sign-Up </a>
-                    {% endif %}
 
                 </div>
 
@@ -40,14 +43,14 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
-                            <a href="./index.html">
+                            <a href="/">
                                 <img src="{% static 'img/shop-logo.png' %}" alt="">
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-7">
                         <div class="advanced-search">
-                            <button type="button" class="category-btn">All Categories</button>
+                            <button type="{% static '' %}button" class="category-btn">All Categories</button>
                             <div class="input-group">
                                 <input type="text" placeholder="What do you need?">
                                 <button type="button"><i class="ti-search"></i></button>
@@ -84,7 +87,6 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="cart-price">$</li>
                         </ul>
                     </div>
                 </div>
@@ -96,32 +98,14 @@
                     <div class="depart-btn">
                         <i class="ti-menu"></i>
                         <span>All departments</span>
-                        <ul class="depart-hover">
-                            <li class="active"><a href="#">Women's Clothing</a></li>
-                            <li><a href="#">Men's Clothing</a></li>
-                            <li><a href="#">Kid's Clothing</a></li>
-                            <li><a href="#">Accessories/Shoes</a></li>
-                        </ul>
                     </div>
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./shop.html">Shop</a></li>
-                        <li><a href="#">Collection</a>
-                            <ul class="dropdown">
-                                <li><a href="#">Men's</a></li>
-                                <li><a href="#">Women's</a></li>
-                                <li><a href="#">Kid's</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./contact.html">Contact</a></li>
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Contact</a></li>
                         <li><a href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                <li><a href="./check-out.html">Checkout</a></li>
-                                <li><a href="./faq.html">Faq</a></li>
-                            </ul>
                         </li>
                     </ul>
                 </nav>
