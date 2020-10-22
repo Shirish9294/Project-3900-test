@@ -55,7 +55,7 @@ def signup_form(request):
             current_user = request.user
             data = UserProfile()
             data.user_id = current_user.id
-            data.image = "images/images/user.png"
+            data.image = "images/user.png"
             data.save()
 
             messages.success(request, 'Your account has been created!')

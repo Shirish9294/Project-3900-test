@@ -122,15 +122,12 @@ STATIC_URL = '/static/'
 MEDIA_URL='/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 
-SITE_ID=1
-CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 
-CKEDITOR_UPLOAD_PATH='/home/static/img/'
-CKEDITOR_IMAGE_BACKEND="pillow"
+#SMTP Configuration
 
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': None,
-    },
-}
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''

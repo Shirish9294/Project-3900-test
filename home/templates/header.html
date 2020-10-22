@@ -14,7 +14,7 @@
             <div class = "ht-right">
 
                 {% if user.id is not NONE %}
-                        <a href="/user" class="login-panel"><i ><img src = '{{ request.session.userimage }}' style="height: 35px; width: 30px; border-radius: 10%" alt=" image"></i>{{ user  }}</a>
+                        <a href="/user" class="login-panel"><i ><img src = '{{ request.session.userimage }}' style="height: 35px; width: 30px; border-radius: 10%" ></i>{{ user  }}</a>
 
                         <a href="/logout" class="login-panel"><i class="fa fa-user"></i>LogOut</a>
                     {% else %}
@@ -23,15 +23,7 @@
                     {% endif %}
             </div>
 
-                <div class="ht-right">
-                    <div class="lan-selector">
-                        <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                            <option value='yt' data-image="{% static 'img/flag-1.jpg' %}" data-imagecss="flag yt"
-                                data-title="English">English</option>
-                            <option value='yu' data-image="{% static 'img/flag-2.jpg' %}" data-imagecss="flag yu"
-                                data-title="German">German </option>
-                        </select>
-                    </div>
+
 
 
                 </div>
